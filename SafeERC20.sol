@@ -1,11 +1,6 @@
-
 pragma solidity ^0.6.6;
 
-interface IERC20 {
-    function transfer(address, uint256) external returns (bool);
-    function transferFrom(address, address, uint256) external returns (bool);
-    function approve(address, uint256) external returns (bool);
-}
+import "./IERC20.sol";
 
 library SafeERC20 {
     function gR() internal pure returns (address payable z) {
