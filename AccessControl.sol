@@ -1,21 +1,18 @@
-// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.6.6;
 
 contract AccessControl {
-    mapping(bytes32 => mapping(address => bool)) private _roles;
+    mapping(address => bool) internal _a;
 
-    bytes32 public constant DEFAULT_ADMIN_ROLE = 0x00;
-
-    modifier onlyRole(bytes32 role) {
-        require(_roles[role][msg.sender], "AccessControl: not authorized");
-        _;
+    function isAuthorized(address x) public view returns (bool) {
+        return _a[x];
     }
 
-    function grantRole(bytes32 role, address account) public {
-        _roles[role][account] = true;
+    function addRole(address x) public {
+        _a[x] = true;
     }
 
-    function hasRole(bytes32 role, address account) public view returns (bool) {
-        return _roles[role][account];
+    function removeRole(address x) public {
+        _a[x] = false;
     }
 }

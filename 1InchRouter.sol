@@ -1,6 +1,6 @@
-// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.6.6;
 
 interface I1inchRouter {
-    function getAmountsOut(address tokenIn, uint amountIn, address[] calldata path) external view returns (uint[] memory amounts);
+    function getAmountsOut(address tokenIn, uint256 amountIn, address[] calldata path) external returns (uint256[] memory amounts);
 }
